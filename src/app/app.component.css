@@ -1,0 +1,15 @@
+.main {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+}
+.welcome {
+  width: 88.8%;
+}
+.sidenav {
+  border: 3px solid rgb(104, 103, 103);
+  background-color:darkgrey;
+  width: 10%;
+}
+

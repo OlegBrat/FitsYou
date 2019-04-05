@@ -1,0 +1,21 @@
+mat-toolbar{
+  background-color: blue;
+
+
+}
+
+ul{
+  list-style: none;
+  display: flex;
+
+}
+li{
+  margin: 5px;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.header{
+  font-family: 'Indie Flower', cursive;
+font-size: 40px;
+}
