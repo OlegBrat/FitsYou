@@ -1,0 +1,135 @@
+<mat-card class="container">
+  <form (ngSubmit)="addSize(sizeForm)" #sizeForm="ngForm">
+    <div class="main">
+      <div class="box">
+        <h1>Main</h1>
+        <div class="item">
+          <mat-form-field appearance="outline" color="accent">
+            <mat-label>Height</mat-label>
+            <input
+              type="number"
+              matInput
+              name="height"
+              [(ngModel)]="heightData"
+              required
+              #height="ngModel"
+            />
+          </mat-form-field>
+        </div>
+        <div class="item">
+          <mat-form-field appearance="outline" color="accent">
+            <mat-label>Weight</mat-label>
+            <input
+              matInput
+              type="number"
+              name="weight"
+              [(ngModel)]="weightData"
+              required
+              #weight="ngModel"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="vertical-row"></div>
+
+      <div class="box">
+        <h1>Body</h1>
+
+        <div class="item">
+          <mat-form-field appearance="outline" color="accent">
+            <mat-label>Body Length</mat-label>
+            <input
+              type="number"
+              color="accent"
+              matInput
+              name="bodyLength"
+              [(ngModel)]="bodyLengthData"
+              required
+              #bodyLength="ngModel"
+            />
+          </mat-form-field>
+        </div>
+        <div class="item">
+          <mat-form-field appearance="outline" color="accent">
+            <mat-label>Body Bust</mat-label>
+            <input
+              type="number"
+              color="accent"
+              matInput
+              name="bodyBust"
+              [(ngModel)]="bodyBustData"
+              required
+              #bodyBust="ngModel"
+            />
+          </mat-form-field>
+        </div>
+        <div class="item">
+          <mat-form-field appearance="outline" color="accent">
+            <mat-label>Body Sleeves</mat-label>
+            <input
+              type="number"
+              color="accent"
+              matInput
+              name="bodySleeves"
+              [(ngModel)]="bodySleevesData"
+              required
+              #bodySleeves="ngModel"
+            />
+          </mat-form-field>
+        </div>
+        <div class="item">
+          <mat-form-field appearance="outline" color="accent">
+            <mat-label>Body Sholder</mat-label>
+            <input
+              type="number"
+              color="accent"
+              matInput
+              name="bodySholder"
+              [(ngModel)]="bodySholderData"
+              required
+              #bodySholder="ngModel"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="vertical-row"></div>
+
+      <div class="box">
+        <h1>Legs</h1>
+
+        <div class="item">
+          <mat-form-field appearance="outline" color="accent">
+            <mat-label>Legs Length</mat-label>
+            <input
+              type="number"
+              color="accent"
+              matInput
+              name="legsLength"
+              [(ngModel)]="legsLengthData"
+              required
+              #legsLength="ngModel"
+            />
+          </mat-form-field>
+        </div>
+        <div class="item">
+          <mat-form-field appearance="outline" color="accent">
+            <mat-label>HipLine</mat-label>
+            <input
+              type="number"
+              color="accent"
+              matInput
+              name="hipLine"
+              [(ngModel)]="hipLineData"
+              required
+              #hipLine="ngModel"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <button type="submit" mat-raised-button>Add Size</button>
+    <button type="submit" mat-raised-button>Edit</button>
+  </form>
+</mat-card>

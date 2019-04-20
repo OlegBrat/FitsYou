@@ -6,6 +6,8 @@
 }
 .welcome {
   width: 88.8%;
+  background-image:url("../assets/supreme.jpg");
+  background-size: 100%;
 }
 .sidenav {
   border: 3px solid rgb(104, 103, 103);

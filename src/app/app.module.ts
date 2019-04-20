@@ -21,6 +21,7 @@ import { CoatComponent } from "./clothes-com/coat/coat.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { SignupComponent } from "./auth/signup/signup.component";
 import { FormsModule } from "@angular/forms";
+import { MySizeComponent } from "./my-size/my-size.component";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FormsModule } from "@angular/forms";
     PantsComponent,
     CoatComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    MySizeComponent
   ],
   imports: [
     BrowserModule,

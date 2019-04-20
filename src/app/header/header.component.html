@@ -1,16 +1,19 @@
+<mat-toolbar>
+  <span class="header ">FitsYou</span>
+  <span class="spacer"></span>
 
-  <mat-toolbar>
-      <span class="header " >FitsYou</span>
-      <span class="spacer"></span>
-
-        <ul>
-          <li>
-              <a mat-fab routerLink="/login">Login</a>
-
-          </li>
-          <li>
-              <a mat-fab routerLink="/signup">Signup</a>
-
-          </li>
-        </ul>
-    </mat-toolbar>
+  <ul>
+    <li *ngIf="!isLogin">
+      <a mat-fab routerLink="/login">Login</a>
+    </li>
+    <li *ngIf="!isLogin">
+      <a mat-fab routerLink="/signup">Signup</a>
+    </li>
+    <li *ngIf="isLogin">
+      <a mat-fab routerLink="/mySize">MySize</a>
+    </li>
+    <li *ngIf="isLogin">
+      <a mat-fab (click)="logOut()" routerLink="/mySize">LogOut</a>
+    </li>
+  </ul>
+</mat-toolbar>

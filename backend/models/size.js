@@ -1,20 +1,15 @@
-const mongoose = require('mongoose');
-const sizeSchema= mongoose.Schema({
-id:{type: String, require: true },
-height:{type: Number, require: true},
-weight:{type: Number, require: true},
-pants = {
-  length:{type: Number, require: true},
-  hipLine:{type: Number, require: true},
-},
-shirt={
-  length:{type: Number, require: true},
-  bust:{type: Number, require: true},
-},
-coat={
-  sholder:{type: Number, require: true},
-  sleeves:{type: Number, require: true}
-}
-}
-)
-module.exports =mongoose.model("Size", sizeSchema);
+const mongoose = require("mongoose");
+
+const sizeSchema = mongoose.Schema({
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  height: { type: Number, require: true },
+  weight: { type: Number, require: true },
+  legsLength: { type: Number, require: true },
+  legsHipLine: { type: Number, require: true },
+
+  bodyLength: { type: Number, require: true },
+  bodyBust: { type: Number, require: true },
+  bodySholder: { type: Number, require: true },
+  bodySleeves: { type: Number, require: true }
+});
+module.exports = mongoose.model("Size", sizeSchema);
