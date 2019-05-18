@@ -7,17 +7,18 @@ import { Subscription } from "rxjs";
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.css"]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   isLogin = this.authService.isLogin;
   private loginSub: Subscription;
 
-  constructor(private authService: AuthService) {}
-  ngOnInit() {
+  constructor(private authService: AuthService) {
     this.loginSub = this.authService.loginLiscener().subscribe(login => {
       this.isLogin = login;
+      console.log(this.isLogin);
     });
   }
-  logOut(){
+
+  logOut() {
     this.authService.logOut();
   }
 }

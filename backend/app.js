@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const User = require("./models/user");
 const Size = require("./models/size");
 const bodyParser = require("body-parser");
+const jwt = require("jsonwebtoken");
 const app = express();
 
 mongoose
@@ -58,11 +59,13 @@ app.post("/api/login", (req, res, next) => {
           size: userSize
         });
       }
-      console.log(fetchUser);
+      const token = jwt.sign({ id: user._id }, "secret", { expiresIn: "1h" });
       return res.status(200).json({
         user: fetchUser,
         massege: "login sucsseed",
-        size: userSize
+        size: userSize,
+        token: token,
+        expiresIn: 3600
       });
     });
   });
@@ -91,12 +94,38 @@ app.post("/api/mySize", (req, res, next) => {
 app.get("/api/getsize/:id", (req, res, next) => {
   const userId = req.params.id;
   Size.findOne({ userId: userId }).then(data => {
-    console.log(data);
     return res.status(200).json({
       size: data,
       massege: "get Succses"
     });
   });
 });
+
+app.put("/api/editSize/:id",(req,res,next)=>{
+  console.log("in put");
+  sizeId= req.params.id;
+
+  const size = new Size({
+    _id: sizeId,
+    userId: req.body.userId,
+    height: req.body.height,
+    weight: req.body.weight,
+    legsLength: req.body.legsLength,
+    hipLine: req.body.hipLine,
+    shirtLength: req.body.shirtLength,
+    bust: req.body.bust,
+    shoulder: req.body.shoulder,
+    sleeves: req.body.sleeves
+  });
+
+    console.log(sizeId);
+    Size.updateOne({_id: sizeId},size).then(data =>{
+      console.log("in updateone");
+      res.status(201).json({
+        message: "size updated"
+      });
+    });
+  });
+
 
 module.exports = app;

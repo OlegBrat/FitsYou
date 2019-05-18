@@ -21,25 +21,31 @@ export class MySizeComponent implements OnInit {
   bodySholderData: number;
   bodySleevesData: number;
 
+  isDisabled = true;
+  isSize = false;
   constructor(private sizeService: SizeService) {}
 
   ngOnInit() {
     this.sizeService.getUserSize();
     this.sizeSub = this.sizeService.getSizeLiscener().subscribe(size => {
-      this.heightData = size.height;
-      this.weightData = size.weight;
-      this.legsLengthData = size.legsLength;
-      this.hipLineData = size.legsHipLine;
-      this.bodyLengthData = size.bodyLength;
-      this.bodyBustData = size.bodyBust;
-      this.bodySholderData = size.bodySholder;
-      this.bodySleevesData = size.bodySleeves;
+      if (size) {
+        this.heightData = size.height;
+        this.weightData = size.weight;
+        this.legsLengthData = size.legsLength;
+        this.hipLineData = size.legsHipLine;
+        this.bodyLengthData = size.bodyLength;
+        this.bodyBustData = size.bodyBust;
+        this.bodySholderData = size.bodySholder;
+        this.bodySleevesData = size.bodySleeves;
+        this.isSize = true;
+      }
     });
   }
 
   addSize(sizeForm: NgForm) {
     const userIdFromLS = localStorage.getItem("userId");
     const userSize: SizeData = {
+      _id: null,
       userId: userIdFromLS,
       height: sizeForm.value.height,
       weight: sizeForm.value.weight,
@@ -52,5 +58,26 @@ export class MySizeComponent implements OnInit {
     };
     this.sizeService.addSize(userSize);
     console.log(userSize);
+  }
+  edit() {
+    this.isDisabled = false;
+  }
+  saveEdit(sizeForm: NgForm) {
+    const userIdFromLS = localStorage.getItem("userId");
+    const userSize: SizeData = {
+      _id: null,
+      userId: userIdFromLS,
+      height: sizeForm.value.height,
+      weight: sizeForm.value.weight,
+      legsLength: sizeForm.value.legsLength,
+      legsHipLine: sizeForm.value.hipLine,
+      bodyLength: sizeForm.value.bodyLength,
+      bodyBust: sizeForm.value.bodyBust,
+      bodySholder: sizeForm.value.bodySholder,
+      bodySleeves: sizeForm.value.bodySleeves
+    };
+    console.log(userSize);
+    this.sizeService.saveEdit(userSize);
+
   }
 }

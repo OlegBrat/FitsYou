@@ -1,4 +1,5 @@
 export interface SizeData {
+  _id: string;
   userId: string;
   height: number;
   weight: number;

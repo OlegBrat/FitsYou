@@ -22,6 +22,7 @@ import { LoginComponent } from "./auth/login/login.component";
 import { SignupComponent } from "./auth/signup/signup.component";
 import { FormsModule } from "@angular/forms";
 import { MySizeComponent } from "./my-size/my-size.component";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MySizeComponent } from "./my-size/my-size.component";
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MatToolbarModule,

@@ -1,3 +1,35 @@
-<p>
-  coat works!
-</p>
+<mat-card class="container">
+    <form [formGroup]="coatForm" (ngSubmit)="onFormSubmit()">
+      <div>
+        <mat-form-field>
+          <input
+            type="number"
+            formControlName="coatLength"
+            matInput
+            placeholder="Coat Length"
+          />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input
+            type="number"
+            matInput
+            placeholder="Coat Bust"
+            formControlName="coatBust"
+          />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input
+            type="number"
+            matInput
+            placeholder="Coat Sholder"
+            formControlName="coatSholder"
+          />
+        </mat-form-field>
+      </div>
+      <button type="submit" mat-raised-button>Fit It!</button>
+    </form>
+  </mat-card>

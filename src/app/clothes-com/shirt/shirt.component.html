@@ -1,3 +1,38 @@
-<p>
-  shirt works!
-</p>
+<mat-card class="container">
+  <form [formGroup]="shirtForm" (ngSubmit)="onFormSubmit()">
+    <div>
+      <mat-form-field>
+        <input
+          type="number"
+          formControlName="shirtLength"
+          matInput
+          placeholder="Shirt Length"
+          min=0
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input
+          type="number"
+          matInput
+          placeholder="Shirt Bust"
+          formControlName="shirtBust"
+          min=0
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input
+          type="number"
+          matInput
+          placeholder="Shirt Sholder"
+          formControlName="shirtSholder"
+          min=0
+        />
+      </mat-form-field>
+    </div>
+    <button type="submit" mat-raised-button>Fit It!</button>
+  </form>
+</mat-card>

@@ -10,6 +10,7 @@
               type="number"
               matInput
               name="height"
+              [disabled]="isDisabled"
               [(ngModel)]="heightData"
               required
               #height="ngModel"
@@ -23,6 +24,7 @@
               matInput
               type="number"
               name="weight"
+              [disabled]="isDisabled"
               [(ngModel)]="weightData"
               required
               #weight="ngModel"
@@ -44,6 +46,7 @@
               color="accent"
               matInput
               name="bodyLength"
+              [disabled]="isDisabled"
               [(ngModel)]="bodyLengthData"
               required
               #bodyLength="ngModel"
@@ -58,6 +61,7 @@
               color="accent"
               matInput
               name="bodyBust"
+              [disabled]="isDisabled"
               [(ngModel)]="bodyBustData"
               required
               #bodyBust="ngModel"
@@ -72,6 +76,7 @@
               color="accent"
               matInput
               name="bodySleeves"
+              [disabled]="isDisabled"
               [(ngModel)]="bodySleevesData"
               required
               #bodySleeves="ngModel"
@@ -86,6 +91,7 @@
               color="accent"
               matInput
               name="bodySholder"
+              [disabled]="isDisabled"
               [(ngModel)]="bodySholderData"
               required
               #bodySholder="ngModel"
@@ -107,6 +113,7 @@
               color="accent"
               matInput
               name="legsLength"
+              [disabled]="isDisabled"
               [(ngModel)]="legsLengthData"
               required
               #legsLength="ngModel"
@@ -121,6 +128,7 @@
               color="accent"
               matInput
               name="hipLine"
+              [disabled]="isDisabled"
               [(ngModel)]="hipLineData"
               required
               #hipLine="ngModel"
@@ -129,7 +137,9 @@
         </div>
       </div>
     </div>
-    <button type="submit" mat-raised-button>Add Size</button>
-    <button type="submit" mat-raised-button>Edit</button>
+    <button *ngIf="isSize && !isDisabled" type="button" (click)="saveEdit(sizeForm)" mat-raised-button>Save</button>
+
+    <button *ngIf="!isSize" type="submit" mat-raised-button>Add Size</button>
+    <button type="button" (click)="edit()" mat-raised-button>Edit</button>
   </form>
 </mat-card>
